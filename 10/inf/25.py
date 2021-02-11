@@ -9,7 +9,7 @@ for b in a:
     if((b % 5 == 0) and (b % 10 == 0)):
         s = s + b
         c = c + 1
-print(r)
+print(s, c)
 
 
 # Импортировать библиотеку random
