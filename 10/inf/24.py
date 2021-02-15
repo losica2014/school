@@ -1,10 +1,10 @@
-import random
+import random # Импортировать библиотеку random
 
-A = []
-for i in range(10):
-    A.append(random.randint(-10, 10))
-B = []
-for i in range(10):
-    if(A[i] % 2 == 0):
-        B.append(i)
-print(*B)
+A = [] # Создать пустой массив A
+for i in range(10): # Выполнить 10 раз
+    A.append(random.randint(-10, 10)) # В массив A добавить случайное число (-10 <-> 10)
+B = [] # Создать пустой массив B
+for i in range(10): # Перебираем элементы по индексу
+    if(A[i] % 2 == 0): # Если элемент чётный
+        B.append(i) # Добавить его индекс в массив B
+print(*B) # Напесчатать все элементы массива B

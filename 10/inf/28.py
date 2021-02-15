@@ -1,10 +1,13 @@
-import random
+import random # Импортировать библиотеку random
 
-a = []
-b = []
-for i in range(10):
-    a.append(random.randint(1, 100))
-    b.append(random.randint(1, 100))
+a = [] # Создать пустой массив a
+b = [] # Создать пустой массив b
+for i in range(10): # Выполнить 10 раз
+    a.append(random.randint(1, 100)) # Добавить в массив a случайное число (1 <-> 100)
+    b.append(random.randint(1, 100)) # Добавить в массив b случайное число (1 <-> 100)
 
-c = [a[i] + b[i] for i in range(10)]
-print(*c)
+c = [a[i] + b[i] for i in range(10)] # Сложить соответствующие элементы массивов и добавить в массив c
+# Читать как:
+# Переменная c = Массив [Сумма элемента a[i] и b[i] для i в промежутке(0 <-> 9)]
+
+print(*c) # Напечатать все элементы массива c

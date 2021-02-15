@@ -1,10 +1,10 @@
-import random
+import random # Импортировать библиотеку random
 
-a = []
-for i in range(10):
-    a.append(random.randint(-10, 10))
-ix = 0
-for i in range(10):
-    if(a[i] > a[ix]):
-        ix = i
-print(a[ix], ix)
+a = [] # Создать пустой массив a
+for i in range(10): # Выполнить 10 раз
+    a.append(random.randint(-10, 10)) # В массив a добавить случайное число (-10 <-> 10)
+ix = 0 # Создать переменную: IndeX
+for i in range(10): # Перебор элементов по индексу
+    if(a[i] > a[ix]): # Если текущий элемент больше предыдущего наибольшего
+        ix = i # Сохранить новый индекс
+print(a[ix], ix) # Напечатать значение и индекс подходящего элемента
