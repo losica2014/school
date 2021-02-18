@@ -48,28 +48,38 @@ def printWords(n):
     p = ""
     for i in range(len(str(n))-1, -1, -1):
         if(i == 2):
-            p += (printNum((n//10**i)%10**i, woe=True) + 'сти ')
+            ta = n//100
+            t = ta%10
+            if(t == 1):
+                p += 'Сто '
+            if(t == 2):
+                p += 'Двести '
+            if(t >= 3) and (t < 5):
+                p += (printNum((n//10**i)%10**i, woe=True) + 'ста ')
+            if(t >= 5) and (t <= 9):
+                p += (printNum((n//10**i)%10**i, woe=False) + 'сот ')
         if(i == 1):
             ta = n//10
             t = ta%10
             t0 = (n//10)%10
-            if(n % 100 > 10) and (n % 100 < 20):
+            tn = n % 100
+            print(n % 100)
+            if(tn > 10) and (tn < 20):
                 p += printNum(t0, woe=True)
                 p += 'надцать '
                 break
-            else:
-                if(t == 1):
-                    p += 'десять'
-                elif(t >= 2 & t < 4):
-                    p += printNum(t, woe=True)
-                    p += 'дцать '
-                elif(t == 4):
-                    p += 'сорок '
-                elif(t >= 5 & t < 9):
-                    p += printNum(t, woe=False)
-                    p += 'десят '
-                elif(t == 9):
-                    p += 'девяносто '
+            elif(tn == 10):
+                p += 'десять'
+            elif(tn >= 20) and (tn < 40):
+                p += printNum(t, woe=True)
+                p += 'дцать '
+            elif(tn == 4):
+                p += 'сорок '
+            elif(tn >= 50) and (tn < 90):
+                p += printNum(t, woe=False)
+                p += 'десят '
+            elif(tn == 90):
+                p += 'девяносто '
         if(i == 0):
             p += printNum(n%10, woe=False)
     print(p)
