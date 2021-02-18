@@ -69,7 +69,7 @@ def printWords(n):
                 p += 'надцать '
                 break
             elif(tn == 10):
-                p += 'десять'
+                p += 'Десять'
             elif(tn >= 20) and (tn < 40):
                 p += printNum(t, woe=True)
                 p += 'дцать '
@@ -78,8 +78,8 @@ def printWords(n):
             elif(tn >= 50) and (tn < 90):
                 p += printNum(t, woe=False)
                 p += 'десят '
-            elif(tn == 90):
-                p += 'девяносто '
+            elif(tn >= 90):
+                p += 'Девяносто '
         if(i == 0):
             p += printNum(n%10, woe=False)
     print(p)
