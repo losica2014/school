@@ -39,13 +39,39 @@ def printNum(n, woe=False):
         else:
             return 'Девять'
     if(n == 0):
-        return 'Ноль'
+        if(woe):
+            return ''
+        else:
+            return 'Ноль'
     
 def printWords(n):
     p = ""
-    for i in range(len(str(n))-1, 0, -1):
+    for i in range(len(str(n))-1, -1, -1):
+        if(i == 2):
+            p += (printNum((n//10**i)%10**i, woe=True) + 'сти ')
         if(i == 1):
-            p += printNum(n%10**i, woe=True) + 'надцать'
+            ta = n//10
+            t = ta%10
+            t0 = (n//10)%10
+            if(n % 100 > 10) and (n % 100 < 20):
+                p += printNum(t0, woe=True)
+                p += 'надцать '
+                break
+            else:
+                if(t == 1):
+                    p += 'десять'
+                elif(t >= 2 & t < 4):
+                    p += printNum(t, woe=True)
+                    p += 'дцать '
+                elif(t == 4):
+                    p += 'сорок '
+                elif(t >= 5 & t < 9):
+                    p += printNum(t, woe=False)
+                    p += 'десят '
+                elif(t == 9):
+                    p += 'девяносто '
+        if(i == 0):
+            p += printNum(n%10, woe=False)
     print(p)
+    
 printWords(int(input()))
-
