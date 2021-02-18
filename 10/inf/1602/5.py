@@ -81,7 +81,8 @@ def printWords(n):
             elif(tn >= 90):
                 p += 'Девяносто '
         if(i == 0):
-            p += printNum(n%10, woe=False)
+            if not((n%10 == 0) and (n > 0)):
+                p += printNum(n%10, woe=False)
     print(p)
     
 printWords(int(input()))
