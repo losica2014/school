@@ -1,7 +1,7 @@
 def printDividers(n):
     d = []
     i = 1
-    while i**2 <= n:
+    while i <= n:
         if(n % i == 0):
             d.append(i)
         i += 1
