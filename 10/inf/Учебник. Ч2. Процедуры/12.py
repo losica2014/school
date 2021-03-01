@@ -43,7 +43,7 @@ def numToRomanian(nn):
         if(c == 3):
             r+= 'M'*(d)
         if(c > 3):
-            r+= 'M'*(10*d)
+            r+= 'M'*((10**(c-3))*d)
 
     print(r)
 
