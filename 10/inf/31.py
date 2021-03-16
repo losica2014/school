@@ -1,5 +1,5 @@
 def F(n):
-    if n > 1:
+    if n > 0:
         return n%10*F(n//10)
     else:
         return 1
