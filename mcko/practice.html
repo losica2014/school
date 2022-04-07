@@ -1,0 +1,101 @@
+<meta charset="utf-8">
+<pre>
+ <code id="htmlViewer" style="color:rgb(0, 0, 0); font-weight:400;font-size: 24px;background-color:rgb(255, 255, 255);background:rgb(255, 255, 255);display:block;padding: .5em;"><span style="color:rgb(0, 128, 0); font-weight:400;"># Пример решения кейса &quot;Основы программирования на Python&quot;</span>
+<span style="color:rgb(0, 128, 0); font-weight:400;"># из практического этапа конкурса Интеллектуальный мегаполис МЦКО 2022 года</span>
+<span style="color:rgb(0, 128, 0); font-weight:400;"># Автор: Лозицкий А.</span>
+
+
+<span style="color:rgb(0, 128, 0); font-weight:400;"># Функция, выводящая на экран данные ученика</span>
+<span style="color:rgb(0, 128, 0); font-weight:400;"># в виде строки, разделяя элементы пробелом</span>
+<span style="color:rgb(0, 0, 0); font-weight:400;"><span style="color:rgb(0, 0, 255); font-weight:400;">def</span> <span style="color:rgb(163, 21, 21); font-weight:400;">printS</span>(<span style="color:rgb(0, 0, 0); font-weight:400;">a</span>):</span>
+    <span style="color:rgb(0, 0, 255); font-weight:400;">print</span>(<span style="color:rgb(163, 21, 21); font-weight:400;">&#x27; &#x27;</span>.join(<span style="color:rgb(0, 0, 255); font-weight:400;">map</span>(<span style="color:rgb(0, 0, 255); font-weight:400;">str</span>, a)))
+
+<span style="color:rgb(0, 128, 0); font-weight:400;"># Функция, добавляющая ученика</span>
+<span style="color:rgb(0, 0, 0); font-weight:400;"><span style="color:rgb(0, 0, 255); font-weight:400;">def</span> <span style="color:rgb(163, 21, 21); font-weight:400;">add</span>(<span style="color:rgb(0, 0, 0); font-weight:400;">args</span>):</span>
+    <span style="color:rgb(0, 0, 255); font-weight:400;">global</span> students <span style="color:rgb(0, 128, 0); font-weight:400;"># Получаем доступ к глобальной переменной (находящейся вне функции) students</span>
+    <span style="color:rgb(0, 128, 0); font-weight:400;"># Добавляем ученика в массив, сконвертировав числовые поля из строк в числа</span>
+    students.append((args[<span style="color:rgb(0, 0, 0); font-weight:400;">0</span>], <span style="color:rgb(0, 0, 255); font-weight:400;">int</span>(args[<span style="color:rgb(0, 0, 0); font-weight:400;">1</span>]), <span style="color:rgb(0, 0, 255); font-weight:400;">float</span>(args[<span style="color:rgb(0, 0, 0); font-weight:400;">2</span>]), <span style="color:rgb(0, 0, 255); font-weight:400;">float</span>(args[<span style="color:rgb(0, 0, 0); font-weight:400;">3</span>]), <span style="color:rgb(0, 0, 255); font-weight:400;">float</span>(args[<span style="color:rgb(0, 0, 0); font-weight:400;">4</span>])))
+
+<span style="color:rgb(0, 128, 0); font-weight:400;"># Функция, отображающая данные об ученике</span>
+<span style="color:rgb(0, 0, 0); font-weight:400;"><span style="color:rgb(0, 0, 255); font-weight:400;">def</span> <span style="color:rgb(163, 21, 21); font-weight:400;">show</span>(<span style="color:rgb(0, 0, 0); font-weight:400;">args</span>):</span>
+    <span style="color:rgb(0, 0, 255); font-weight:400;">global</span> students <span style="color:rgb(0, 128, 0); font-weight:400;"># Получаем доступ к глобальной переменной (находящейся вне функции) students</span>
+    <span style="color:rgb(0, 0, 255); font-weight:400;">for</span> student <span style="color:rgb(0, 0, 255); font-weight:400;">in</span> students: <span style="color:rgb(0, 128, 0); font-weight:400;"># Перебираем всех учеников</span>
+        <span style="color:rgb(0, 0, 255); font-weight:400;">if</span>(student[<span style="color:rgb(0, 0, 0); font-weight:400;">0</span>] == args[<span style="color:rgb(0, 0, 0); font-weight:400;">0</span>]): <span style="color:rgb(0, 128, 0); font-weight:400;"># Если совпадает имя</span>
+            printS(student) <span style="color:rgb(0, 128, 0); font-weight:400;"># Выводим данные ученика</span>
+
+<span style="color:rgb(0, 128, 0); font-weight:400;"># Фунцкия, удаляющая ученика</span>
+<span style="color:rgb(0, 0, 0); font-weight:400;"><span style="color:rgb(0, 0, 255); font-weight:400;">def</span> <span style="color:rgb(163, 21, 21); font-weight:400;">remove</span>(<span style="color:rgb(0, 0, 0); font-weight:400;">args</span>):</span>
+    <span style="color:rgb(0, 0, 255); font-weight:400;">global</span> students <span style="color:rgb(0, 128, 0); font-weight:400;"># Получаем доступ к глобальной переменной (находящейся вне функции) students</span>
+    <span style="color:rgb(0, 0, 255); font-weight:400;">for</span> student <span style="color:rgb(0, 0, 255); font-weight:400;">in</span> students: <span style="color:rgb(0, 128, 0); font-weight:400;"># Перебираем всех учеников</span>
+        <span style="color:rgb(0, 0, 255); font-weight:400;">if</span>(student[<span style="color:rgb(0, 0, 0); font-weight:400;">0</span>] == args[<span style="color:rgb(0, 0, 0); font-weight:400;">0</span>]): <span style="color:rgb(0, 128, 0); font-weight:400;"># Если совпадает имя</span>
+            students.remove(student) <span style="color:rgb(0, 128, 0); font-weight:400;"># Удаляем данные ученика</span>
+
+<span style="color:rgb(0, 128, 0); font-weight:400;"># Функция, выводящая всех учеников, сортируя их по полю</span>
+<span style="color:rgb(0, 0, 0); font-weight:400;"><span style="color:rgb(0, 0, 255); font-weight:400;">def</span> <span style="color:rgb(163, 21, 21); font-weight:400;">summary</span>(<span style="color:rgb(0, 0, 0); font-weight:400;">args</span>):</span>
+    <span style="color:rgb(0, 0, 255); font-weight:400;">global</span> students <span style="color:rgb(0, 128, 0); font-weight:400;"># Получаем доступ к глобальной переменной (находящейся вне функции) students</span>
+    <span style="color:rgb(0, 128, 0); font-weight:400;"># Создаём новый массив l, в который помещаем учеников,</span>
+    <span style="color:rgb(0, 128, 0); font-weight:400;"># отсортировав их по полю args[0]</span>
+    <span style="color:rgb(0, 128, 0); font-weight:400;"># Сортировку производим с помощью lambda-функции (то же самое, что и обычная функция, задаваемая через def,</span>
+    <span style="color:rgb(0, 128, 0); font-weight:400;"># просто без имени и записана короче). Она получает на вход аргумент student - элемент массива students (кортеж) и</span>
+    <span style="color:rgb(0, 128, 0); font-weight:400;"># возвращает нужное нам поле ученика (под индексом args[0]).</span>
+    l = <span style="color:rgb(0, 0, 255); font-weight:400;">sorted</span>(students, key=<span style="color:rgb(0, 0, 255); font-weight:400;">lambda</span> student: student[<span style="color:rgb(0, 0, 255); font-weight:400;">int</span>(args[<span style="color:rgb(0, 0, 0); font-weight:400;">0</span>])])
+    <span style="color:rgb(0, 0, 255); font-weight:400;">for</span> student <span style="color:rgb(0, 0, 255); font-weight:400;">in</span> l: <span style="color:rgb(0, 128, 0); font-weight:400;"># Перебираем всех учеников (в порядке, полученном после сортировки)</span>
+        printS(student) <span style="color:rgb(0, 128, 0); font-weight:400;"># Выводим данные ученика</span>
+
+<span style="color:rgb(0, 128, 0); font-weight:400;"># Функция, сохраняющая список учеников в файл</span>
+<span style="color:rgb(0, 0, 0); font-weight:400;"><span style="color:rgb(0, 0, 255); font-weight:400;">def</span> <span style="color:rgb(163, 21, 21); font-weight:400;">save</span>(<span style="color:rgb(0, 0, 0); font-weight:400;">args</span>):</span>
+    <span style="color:rgb(0, 0, 255); font-weight:400;">global</span> students <span style="color:rgb(0, 128, 0); font-weight:400;"># Получаем доступ к глобальной переменной (находящейся вне функции) students</span>
+    s = <span style="color:rgb(163, 21, 21); font-weight:400;">&quot;&quot;</span> <span style="color:rgb(0, 128, 0); font-weight:400;"># Создаём строку, в которой мы сформируем содержимое будущего файла</span>
+    <span style="color:rgb(0, 0, 255); font-weight:400;">for</span> student <span style="color:rgb(0, 0, 255); font-weight:400;">in</span> students: <span style="color:rgb(0, 128, 0); font-weight:400;"># Перебираем всех учеников</span>
+        <span style="color:rgb(0, 128, 0); font-weight:400;"># Добавляем в конец содержимого строку формата команды ДОБАВИТЬ с данными ученика (по условию задачи),</span>
+        <span style="color:rgb(0, 128, 0); font-weight:400;"># не забываем в конце добавить символ переноса строки на новую &#x27;\n&#x27;</span>
+        s += <span style="color:rgb(163, 21, 21); font-weight:400;">f&#x27;ДОБАВИТЬ <span style="color:rgb(163, 21, 21); font-weight:400;">{student[<span style="color:rgb(0, 0, 0); font-weight:400;">0</span>]}</span> <span style="color:rgb(163, 21, 21); font-weight:400;">{<span style="color:rgb(0, 0, 255); font-weight:400;">str</span>(student[<span style="color:rgb(0, 0, 0); font-weight:400;">1</span>])}</span> <span style="color:rgb(163, 21, 21); font-weight:400;">{<span style="color:rgb(0, 0, 255); font-weight:400;">str</span>(student[<span style="color:rgb(0, 0, 0); font-weight:400;">2</span>])}</span> <span style="color:rgb(163, 21, 21); font-weight:400;">{<span style="color:rgb(0, 0, 255); font-weight:400;">str</span>(student[<span style="color:rgb(0, 0, 0); font-weight:400;">3</span>])}</span> <span style="color:rgb(163, 21, 21); font-weight:400;">{<span style="color:rgb(0, 0, 255); font-weight:400;">str</span>(student[<span style="color:rgb(0, 0, 0); font-weight:400;">4</span>])}</span>\n&#x27;</span>
+    <span style="color:rgb(0, 0, 255); font-weight:400;">with</span> <span style="color:rgb(0, 0, 255); font-weight:400;">open</span>(args[<span style="color:rgb(0, 0, 0); font-weight:400;">0</span>], <span style="color:rgb(163, 21, 21); font-weight:400;">&#x27;w&#x27;</span>) <span style="color:rgb(0, 0, 255); font-weight:400;">as</span> file: <span style="color:rgb(0, 128, 0); font-weight:400;"># Открываем файл для записи (аргумент &#x27;w&#x27; значит режим write)</span>
+        file.write(s) <span style="color:rgb(0, 128, 0); font-weight:400;"># Записываем содержимое в файл</span>
+
+<span style="color:rgb(0, 128, 0); font-weight:400;"># Функция, загружающая список учеников из файла</span>
+<span style="color:rgb(0, 0, 0); font-weight:400;"><span style="color:rgb(0, 0, 255); font-weight:400;">def</span> <span style="color:rgb(163, 21, 21); font-weight:400;">load</span>(<span style="color:rgb(0, 0, 0); font-weight:400;">args</span>):</span>
+    <span style="color:rgb(0, 0, 255); font-weight:400;">global</span> students <span style="color:rgb(0, 128, 0); font-weight:400;"># Получаем доступ к глобальной переменной (находящейся вне функции) students</span>
+    students = [] <span style="color:rgb(0, 128, 0); font-weight:400;"># Очищаем массив учеников (по условию задачи)</span>
+    <span style="color:rgb(0, 0, 255); font-weight:400;">with</span> <span style="color:rgb(0, 0, 255); font-weight:400;">open</span>(args[<span style="color:rgb(0, 0, 0); font-weight:400;">0</span>]) <span style="color:rgb(0, 0, 255); font-weight:400;">as</span> file: <span style="color:rgb(0, 128, 0); font-weight:400;"># Открываем файл для чтения</span>
+        l = file.read().splitlines() <span style="color:rgb(0, 128, 0); font-weight:400;"># Читаем файл, делим по строкам (получим массив строк, каждая строка - команда (по условию задачи))</span>
+        <span style="color:rgb(0, 0, 255); font-weight:400;">for</span> cmd <span style="color:rgb(0, 0, 255); font-weight:400;">in</span> l: <span style="color:rgb(0, 128, 0); font-weight:400;"># Перебираем каждую строку (содержащую команду (по условию задачи))</span>
+            <span style="color:rgb(0, 128, 0); font-weight:400;"># Делим её на составные части, получаем массив, где первый элемент args2[0] - это команда,</span>            
+            <span style="color:rgb(0, 128, 0); font-weight:400;"># а остальные элементы args2[1:] - это аргументы</span>
+            args2 = cmd.split(<span style="color:rgb(163, 21, 21); font-weight:400;">&#x27; &#x27;</span>)
+            add(args2[<span style="color:rgb(0, 0, 0); font-weight:400;">1</span>:]) <span style="color:rgb(0, 128, 0); font-weight:400;"># Выполняем команду ДОБАВИТЬ, передав ей агрументы</span>
+
+
+<span style="color:rgb(0, 128, 0); font-weight:400;"># Начало программы</span>
+
+<span style="color:rgb(0, 128, 0); font-weight:400;"># Массив учеников</span>
+<span style="color:rgb(0, 128, 0); font-weight:400;"># В нём программа будет хранить множество кортежей (неизменяемых массивов), представляющих из себя совокупность данных об ученике:</span>
+<span style="color:rgb(0, 128, 0); font-weight:400;"># Пример = [</span>
+<span style="color:rgb(0, 128, 0); font-weight:400;">#     (&quot;ИвановИИ&quot;, 2005, 4.5, 4, 5),</span>
+<span style="color:rgb(0, 128, 0); font-weight:400;">#     (&quot;ПетровПП&quot;, 2004, 5, 4, 4),</span>
+<span style="color:rgb(0, 128, 0); font-weight:400;"># ]</span>
+students = []
+
+<span style="color:rgb(0, 128, 0); font-weight:400;"># Бесконечный цикл, в котором мы получаем на вход команду и обрабатываем её</span>
+<span style="color:rgb(0, 0, 255); font-weight:400;">while</span> <span style="color:rgb(163, 21, 21); font-weight:400;">True</span>:
+    <span style="color:rgb(0, 128, 0); font-weight:400;"># Получаем на вход команду</span>
+    cmd = <span style="color:rgb(0, 0, 255); font-weight:400;">input</span>() <span style="color:rgb(0, 128, 0); font-weight:400;"># Пример: &quot;ДОБАВИТЬ Аааа 2010 3 4 5&quot;</span>
+    
+    <span style="color:rgb(0, 128, 0); font-weight:400;"># Делим её на составные части, получаем массив, где первый элемент args[0] - это команда, а остальные элементы args[1:] - это аргументы</span>
+    args = cmd.split(<span style="color:rgb(163, 21, 21); font-weight:400;">&#x27; &#x27;</span>) <span style="color:rgb(0, 128, 0); font-weight:400;"># Пример: [&quot;ДОБАВИТЬ&quot;, &quot;ИвановИИ&quot;, &quot;2010&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;]</span>
+    
+    <span style="color:rgb(0, 128, 0); font-weight:400;"># С помощью нескольких условий проверяем, какая команда была выбрана пользователем</span>
+    <span style="color:rgb(0, 128, 0); font-weight:400;">#   Затем вызываем нужную функцию, передавая ей аргументы</span>
+    <span style="color:rgb(0, 0, 255); font-weight:400;">if</span>(args[<span style="color:rgb(0, 0, 0); font-weight:400;">0</span>] == <span style="color:rgb(163, 21, 21); font-weight:400;">&quot;ДОБАВИТЬ&quot;</span>):
+        add(args[<span style="color:rgb(0, 0, 0); font-weight:400;">1</span>:]) <span style="color:rgb(0, 128, 0); font-weight:400;"># Пример: add([&quot;ИвановИИ&quot;, &quot;2010&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;])</span>
+    <span style="color:rgb(0, 0, 255); font-weight:400;">if</span>(args[<span style="color:rgb(0, 0, 0); font-weight:400;">0</span>] == <span style="color:rgb(163, 21, 21); font-weight:400;">&quot;ПОКАЗАТЬ&quot;</span>):
+        show(args[<span style="color:rgb(0, 0, 0); font-weight:400;">1</span>:])
+    <span style="color:rgb(0, 0, 255); font-weight:400;">if</span>(args[<span style="color:rgb(0, 0, 0); font-weight:400;">0</span>] == <span style="color:rgb(163, 21, 21); font-weight:400;">&quot;УДАЛИТЬ&quot;</span>):
+        remove(args[<span style="color:rgb(0, 0, 0); font-weight:400;">1</span>:])
+    <span style="color:rgb(0, 0, 255); font-weight:400;">if</span>(args[<span style="color:rgb(0, 0, 0); font-weight:400;">0</span>] == <span style="color:rgb(163, 21, 21); font-weight:400;">&quot;СВОДКА&quot;</span>):
+        summary(args[<span style="color:rgb(0, 0, 0); font-weight:400;">1</span>:])
+    <span style="color:rgb(0, 0, 255); font-weight:400;">if</span>(args[<span style="color:rgb(0, 0, 0); font-weight:400;">0</span>] == <span style="color:rgb(163, 21, 21); font-weight:400;">&quot;СОХРАНИТЬ&quot;</span>):
+        save(args[<span style="color:rgb(0, 0, 0); font-weight:400;">1</span>:])
+    <span style="color:rgb(0, 0, 255); font-weight:400;">if</span>(args[<span style="color:rgb(0, 0, 0); font-weight:400;">0</span>] == <span style="color:rgb(163, 21, 21); font-weight:400;">&quot;ЗАГРУЗИТЬ&quot;</span>):
+        load(args[<span style="color:rgb(0, 0, 0); font-weight:400;">1</span>:])
+</code></pre>
